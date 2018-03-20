@@ -30,7 +30,7 @@ function hertz2question() {
 }
 
 function interval2question() {
-  if [[ $(($point % 5)) == 0 && $pastp < $point ]]
+  if [[ $(($point % 2)) == 0 && $pastp < $point ]]
   then
     interval=$(($interval/2))
   elif [[ $pastp > $point && $corr == 0 && $interval != 96 ]]
@@ -87,6 +87,8 @@ function play() {
   question2answer
   echo -e "\n$response\t\e[34m$right\e[0m \e[31m$wrong\e[0m $point\e[1m interval: $interval\e[0m\n" 
 }
+
+echo -e "\n\e[1m 1 to higher | 0 to lower | 2 to repeat\e[0m\n"
 
 while [ 1=1 ]
 do
